@@ -1,0 +1,19 @@
+{
+  "name": "num_operation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hzxshark/num_operation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hzxshark/num_operation/issues"
+  },
+  "homepage": "https://github.com/hzxshark/num_operation#readme"
+}
