@@ -4,24 +4,26 @@
 
 ## 安装
 
-`npm i num_operation`
+```js
+npm i num_operation
+```
 
 ## 使用
 
 ```js
-import { plus, minus, times, divide  } from 'num_operation';
+import { plus, minus, times, divide } from 'num_operation';
 
 /** 加法 */
-plus(0.1,0.2)  // 0.3
+plus(0.1, 0.2)  // 0.3
 
 /** 减法 */
-minus(0.1,0.2) // -0.1
+minus(0.1, 0.2) // -0.1
 
 /** 乘法 */
-times(0.1,0.2) // 0.02
+times(0.1, 0.2) // 0.02
 
 /** 除法 */
-divide(0.1,0.2) // 0.5
+divide(0.1, 0.2) // 0.5
 
 
 ```

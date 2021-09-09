@@ -1,4 +1,4 @@
-  
+
 type numType = number | string;
 /**
  * @desc 解决浮动运算问题，避免小数点后产生多位数和计算精度损失。
