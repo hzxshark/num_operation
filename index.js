@@ -43,6 +43,7 @@ exports.float2Fixed = float2Fixed;
  */
 function checkBoundary(num) {
     if (_boundaryCheckingState) {
+        // @ts-ignore
         if (num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) {
             console.warn(num + " is beyond boundary when transfer to integer, the results may not be accurate");
         }
