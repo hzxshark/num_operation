@@ -5,7 +5,7 @@
 ## 安装
 
 ```js
-npm i num_operation
+npm i num_operation --save
 ```
 
 ## 使用
