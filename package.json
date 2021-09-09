@@ -1,7 +1,7 @@
 {
   "name": "num_operation",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "解决浮动运算问题",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
@@ -11,7 +11,12 @@
     "type": "git",
     "url": "git+https://github.com/hzxshark/num_operation.git"
   },
-  "author": "",
+  "keywords": [
+    "typescript",
+    "number",
+    "operation"
+  ],
+  "author": "hezaixing",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hzxshark/num_operation/issues"
