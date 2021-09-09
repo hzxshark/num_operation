@@ -1,6 +1,6 @@
 ### num_operation
 
-[![Build Status](https://app.travis-ci.com/hzxshark/num_operation.svg?branch=master)](https://app.travis-ci.com/hzxshark/num_operation)
+[![Build Status](https://app.travis-ci.com/hzxshark/num_operation.svg?branch=master)](https://app.travis-ci.com/hzxshark/num_operation)[![Coverage Status](https://coveralls.io/repos/github/hzxshark/num_operation/badge.svg?branch=master)](https://coveralls.io/github/hzxshark/num_operation?branch=master)
 
 > 解决js运算浮点数的问题
 
