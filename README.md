@@ -1,6 +1,8 @@
 ### num_operation
 
-## 解决js运算浮点数的问题
+[![Build Status](https://app.travis-ci.com/hzxshark/num_operation.svg?branch=master)](https://app.travis-ci.com/hzxshark/num_operation)
+
+> 解决js运算浮点数的问题
 
 ## 安装
 
