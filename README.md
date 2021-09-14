@@ -13,7 +13,7 @@ npm i num_operation --save
 ## 使用
 
 ```js
-import { plus, minus, times, divide } from 'num_operation';
+import { plus, minus, times, divide, digitToCNchar } from 'num_operation';
 
 /** 加法 */
 plus(0.1, 0.2)  // 0.3
