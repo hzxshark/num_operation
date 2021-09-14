@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.enableBoundaryChecking = exports.float2Fixed = exports.digitLength = exports.round = exports.divide = exports.times = exports.minus = exports.plus = exports.strip = void 0;
+exports.enableBoundaryChecking = exports.digitToCNchar = exports.float2Fixed = exports.digitLength = exports.round = exports.divide = exports.times = exports.minus = exports.plus = exports.strip = void 0;
 /**
  * @desc 解决浮动运算问题，避免小数点后产生多位数和计算精度损失。
  * 问题示例：2.3 + 2.4 = 4.699999999999999，1.0 - 0.9 = 0.09999999999999998
@@ -19,7 +19,6 @@ exports.strip = strip;
  * @param {*number} num Input number
  */
 function digitLength(num) {
-    // Get digit length of e
     var eSplit = num.toString().split(/[eE]/);
     var len = (eSplit[0].split('.')[1] || '').length - +(eSplit[1] || 0);
     return len > 0 ? len : 0;
@@ -146,6 +145,43 @@ function round(num, ratio) {
     return result;
 }
 exports.round = round;
+function digitToCNchar(money) {
+    var digit = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"];
+    var declmalUtil = ["角", "分"];
+    var IntUtilExc = ["元", "万", "亿", "兆"];
+    var IntUtilBac = ["", "拾", "佰", "仟"];
+    var head = money < 0 ? "负" : "";
+    money = Math.abs(money);
+    var res = "";
+    //处理小数
+    for (var i = 0; i < declmalUtil.length; i++) {
+        var a = Math.pow(10, i + 1);
+        a = Math.floor(times(a, money)) % 10;
+        res += (digit[a] + declmalUtil[i]).replace(/(零.)+/, '');
+    }
+    if (res.length < 1) {
+        res = "整";
+    }
+    //处理整数部分
+    var IntPart = Math.floor(money);
+    for (var i = 0; i < IntUtilExc.length && IntPart > 0; i++) {
+        var part = "";
+        for (var j = 0; j < IntUtilBac.length; j++) {
+            var a = IntPart % 10;
+            IntPart = Math.floor(IntPart / 10);
+            part = digit[a] + IntUtilBac[j] + part;
+        }
+        res = part + IntUtilExc[i] + res;
+    }
+    res = res.replace(/(零[拾佰仟])*零元/, "元");
+    res = res.replace(/^(零.)+/, "");
+    res = res.replace(/(零[拾佰仟])+/g, "零");
+    res = res.replace(/零([万亿兆])+/g, "$1");
+    res = res.replace(/零([万亿兆])+/g, "");
+    res = res.replace(/^整$/, "零元整");
+    return head + res;
+}
+exports.digitToCNchar = digitToCNchar;
 var _boundaryCheckingState = true;
 /**
  * 是否进行边界检查，默认开启
@@ -165,5 +201,6 @@ exports.default = {
     round: round,
     digitLength: digitLength,
     float2Fixed: float2Fixed,
+    digitToCNchar: digitToCNchar,
     enableBoundaryChecking: enableBoundaryChecking,
 };

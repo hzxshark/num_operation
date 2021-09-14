@@ -1,7 +1,7 @@
 {
   "name": "num_operation",
-  "version": "1.0.3",
-  "description": "解决浮动运算问题",
+  "version": "1.0.4",
+  "description": "解决浮动运算问题, 数字转化汉字大写",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
@@ -15,7 +15,8 @@
   "keywords": [
     "typescript",
     "number",
-    "operation"
+    "operation",
+    "中文数字大写"
   ],
   "author": "hezaixing",
   "license": "ISC",

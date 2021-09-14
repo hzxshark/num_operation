@@ -138,6 +138,43 @@ function round(num: numType, ratio: number): number {
   return result;
 }
 
+function digitToCNchar(money: number): string{
+  const digit = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖" ];
+  const declmalUtil = ["角", "分"];
+  const IntUtilExc = ["元", "万", "亿", "兆"];
+  const IntUtilBac = ["", "拾", "佰", "仟"];
+  const head = money < 0 ? "负" : "";
+  money = Math.abs(money);
+  let res = "";
+  //处理小数
+  for(let i = 0;i<declmalUtil.length;i++){
+    let a = Math.pow(10,i+1);
+    a= Math.floor(times(a,money))%10;
+    res += (digit[a]+declmalUtil[i]).replace(/(零.)+/,'');
+  }
+  if (res.length < 1) {
+    res = "整";
+  }
+  //处理整数部分
+  let IntPart = Math.floor(money);
+  for(let i = 0;i<IntUtilExc.length&&IntPart>0;i++){
+    let part ="";
+    for(let j=0;j<IntUtilBac.length;j++){
+          let a = IntPart%10;
+          IntPart = Math.floor(IntPart/10);
+          part = digit[a]+IntUtilBac[j]+part;
+    }
+    res = part+IntUtilExc[i]+res;
+  }
+  res=res.replace(/(零[拾佰仟])*零元/,"元");
+  res=res.replace(/^(零.)+/,"");
+  res=res.replace(/(零[拾佰仟])+/g,"零");
+  res=res.replace(/零([万亿兆])+/g,"$1");
+  res=res.replace(/零([万亿兆])+/g,"");
+  res=res.replace(/^整$/, "零元整");
+  return head+res;
+}
+
 let _boundaryCheckingState = true;
 /**
  * 是否进行边界检查，默认开启
@@ -146,7 +183,7 @@ let _boundaryCheckingState = true;
 function enableBoundaryChecking(flag = true) {
   _boundaryCheckingState = flag;
 }
-export { strip, plus, minus, times, divide, round, digitLength, float2Fixed, enableBoundaryChecking };
+export { strip, plus, minus, times, divide, round, digitLength, float2Fixed, digitToCNchar, enableBoundaryChecking };
 export default {
   strip,
   plus,
@@ -156,5 +193,6 @@ export default {
   round,
   digitLength,
   float2Fixed,
+  digitToCNchar,
   enableBoundaryChecking,
 };
