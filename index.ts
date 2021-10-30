@@ -14,8 +14,8 @@ function strip(num: numType, precision = 15): number {
 }
 
 /**
- * Return digits length of a number
- * @param {*number} num Input number
+ * 小数点后几位
+ * @param {*number} num 输入数
  */
 function digitLength(num: numType): number {
   const eSplit = num.toString().split(/[eE]/);
@@ -137,7 +137,11 @@ function round(num: numType, ratio: number): number {
   }
   return result;
 }
-
+/**
+ * 转化为中文大写例如（壹拾贰元伍角）
+ * @param money 金额
+ * @returns 
+ */
 function digitToCNchar(money: number): string{
   const digit = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖" ];
   const declmalUtil = ["角", "分"];

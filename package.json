@@ -1,6 +1,6 @@
 {
   "name": "num_operation",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "解决浮动运算问题, 数字转化汉字大写",
   "main": "index.js",
   "scripts": {
